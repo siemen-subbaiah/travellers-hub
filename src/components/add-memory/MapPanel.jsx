@@ -7,6 +7,9 @@ import MarkLocation from './MarkLocation';
 import { useMemo, useRef, useState } from 'react';
 import PlaceDetailsModal from '../add-place/PlaceDetailsModal';
 import { useNavigate } from 'react-router-dom';
+import icon from 'leaflet/dist/images/marker-icon.png';
+import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+import L from 'leaflet';
 
 const MapPanel = ({ mapImg, placeDetails, editing }) => {
   const navigate = useNavigate();
@@ -18,6 +21,15 @@ const MapPanel = ({ mapImg, placeDetails, editing }) => {
     [40.712216, -74.22655],
     [40.773941, -74.12544]
   );
+
+  const DefaultIcon = L.icon({
+    iconUrl: icon,
+    shadowUrl: iconShadow,
+    iconSize: [28, 40],
+    shadowSize: [28, 45],
+    iconAnchor: [13, 40],
+    shadowAnchor: [3, 65],
+  });
 
   const dragHandler = useMemo(
     () => ({
@@ -50,6 +62,7 @@ const MapPanel = ({ mapImg, placeDetails, editing }) => {
           placeDetails?.map((place) => {
             return (
               <Marker
+                icon={DefaultIcon}
                 position={JSON.parse(place.place_coordinates)}
                 key={place.id}
                 eventHandlers={{
@@ -68,6 +81,7 @@ const MapPanel = ({ mapImg, placeDetails, editing }) => {
           })}
         {location && (
           <Marker
+            icon={DefaultIcon}
             draggable
             eventHandlers={dragHandler}
             ref={markerRef}
