@@ -33,9 +33,6 @@ const AuthState = ({ children }) => {
     try {
       await supabase.auth.signInWithOAuth({
         provider: 'google',
-        options: {
-          redirectTo: 'http://127.0.0.1:5173',
-        },
       });
     } catch (error) {
       console.log(error);
@@ -48,9 +45,6 @@ const AuthState = ({ children }) => {
   const githubLogin = async () => {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: 'github',
-      options: {
-        redirectTo: 'http://127.0.0.1:5173',
-      },
     });
 
     if (error) {

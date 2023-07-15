@@ -8,6 +8,9 @@ import ProfileEditModal from '../components/account/ProfileEditModal';
 import Memories from '../components/account/Memories';
 import Confirm from '../components/common/Confirm';
 import MapDetailsEditMoal from '../components/add-memory/MapDetailsEditMoal';
+import instagram from '../assets/instagram.webp';
+import twitter from '../assets/twitter.png';
+import emptyState from '../assets/empty-state.svg';
 
 const Profile = () => {
   const { user, user_id } = useContext(AuthContext);
@@ -108,11 +111,7 @@ const Profile = () => {
                     target='_blank'
                     rel='noreferrer'
                   >
-                    <img
-                      src='/src/assets/instagram.webp'
-                      alt=''
-                      className='h-10'
-                    />
+                    <img src={instagram} alt='' className='h-10' />
                   </a>
                 )}
                 {profileData?.twitter_link && (
@@ -121,11 +120,7 @@ const Profile = () => {
                     target='_blank'
                     rel='noreferrer'
                   >
-                    <img
-                      src='/src/assets/twitter.png'
-                      alt=''
-                      className='h-10'
-                    />
+                    <img src={twitter} alt='' className='h-10' />
                   </a>
                 )}
               </div>
@@ -141,11 +136,7 @@ const Profile = () => {
           )}
           {memories?.length === 0 && (
             <section className='flex justify-center items-center my-5 flex-col'>
-              <img
-                src='/src/assets/empty-state.svg'
-                alt=''
-                style={{ height: '300px' }}
-              />
+              <img src={emptyState} alt='' style={{ height: '300px' }} />
               <p className='text-xl my-4'>No memories found, add here</p>
               <button className='btn bg-[#2A323C]'>
                 <Link to='/add-map'>Add memory</Link>

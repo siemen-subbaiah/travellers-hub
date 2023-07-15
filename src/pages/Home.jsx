@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { supabase } from '../supabase';
 import Loading from '../components/common/Loading';
 import Memories from '../components/account/Memories';
+import emptyState from '../assets/empty-state.svg';
 
 const Home = () => {
   const { user } = useContext(AuthContext);
@@ -58,11 +59,7 @@ const Home = () => {
         <main className='mt-10'>
           {memories?.length === 0 ? (
             <section className='flex justify-center items-center my-5 flex-col'>
-              <img
-                src='/src/assets/empty-state.svg'
-                alt=''
-                style={{ height: '300px' }}
-              />
+              <img src={emptyState} alt='' style={{ height: '300px' }} />
               <p className='text-xl my-4'>No public memories to display</p>
             </section>
           ) : (

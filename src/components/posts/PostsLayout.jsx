@@ -5,6 +5,7 @@ import PostsComp from './PostsComp';
 import { CommonContext } from '../../context/common/CommonState';
 import { AiFillEdit } from 'react-icons/ai';
 import { AiFillDelete } from 'react-icons/ai';
+import emptyState from '../../assets/empty-state.svg';
 
 const PostsLayout = ({ placeDetails, posts, editing }) => {
   const {
@@ -65,11 +66,7 @@ const PostsLayout = ({ placeDetails, posts, editing }) => {
       )}
       {posts?.length === 0 ? (
         <section className='flex justify-center items-center my-5 flex-col'>
-          <img
-            src='/src/assets/empty-state.svg'
-            alt=''
-            style={{ height: '300px' }}
-          />
+          <img src={emptyState} alt='' style={{ height: '300px' }} />
           {editing ? (
             <>
               <p className='text-xl my-4'>
