@@ -3,6 +3,7 @@ import { AuthContext } from '../context/auth/AuthState';
 import gitHub from '../assets/github.png';
 import google from '../assets/google.png';
 import landing from '../assets/landing-image.svg';
+import { IoIosInformationCircle } from 'react-icons/io';
 
 const Landing = () => {
   const { googleLogin, githubLogin, loading } = useContext(AuthContext);
@@ -10,7 +11,7 @@ const Landing = () => {
   console.log(loading);
 
   return (
-    <main className='mt-32'>
+    <main className='mt-20'>
       <section className='flex items-center justify-between'>
         <h1 className='text-7xl w-2/6 leading-snug'>
           Store all Memories in one Place
@@ -37,6 +38,20 @@ const Landing = () => {
           )}
         </button>
       </section>
+      <section className='mt-7 flex gap-2 items-center'>
+        <IoIosInformationCircle fontSize='1.3rem' />
+        <p style={{ position: 'relative', bottom: '1px' }}>
+          This web app uses supabase and hence the project is paused after
+          certain inactivity.
+        </p>
+      </section>
+      <p className='ml-7'>
+        Hit me up at{' '}
+        <a href='mailto:siemensubbaiah1@gmail.com' className='underline'>
+          siemensubbaiah1@gmail.com
+        </a>{' '}
+        to resume the project
+      </p>
     </main>
   );
 };
